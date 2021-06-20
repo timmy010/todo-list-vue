@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <script src="https://unpkg.com/vue@next"></script>
+    <script defer src="index.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1 class="title">Список задач</h1>
+        <reactions :likes.sync="titleLikes" :dislikes.sync="titleDislikes"></reactions>
+        <p v-if="count === 0">Вы великолепны!</p>
+        <p v-else-if="count === 1">Последний рывок...</p>
+        <p v-else>Осталось сделать задач: <span class="counter">{{ count }}</span></p>
+        <task-list v-show="undoneTasks.length !== 0" :tasks="undoneTasks" title=""></task-list>
+        <task-list v-show="doneTasks.length !== 0" :tasks="doneTasks" title="Завершенные задачи"></task-list>
+        <form class="form" @submit.prevent="addTask">
+            <input v-model="message" :placeholder="placeholder">
+            <input :type="btnType" :disabled="this.message === ''" value="Добавить">
+            <reactions :likes.sync="formLikes" :dislikes.sync="formDislikes"></reactions>
+        </form>
+        <transition name="bounce">
+            <img
+                src="https://img.pngio.com/download-free-png-great-job-png-transparent-great-jobpng-images-free-great-job-png-400_361.png"
+                alt=""
+                class="img"
+                v-show="count === 0"
+            >
+        </transition>
+    </div>
+</body>
+
+</html>

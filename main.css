@@ -1,0 +1,73 @@
+.title {
+  display: inline-block;
+}
+
+.list {
+  position: relative;
+  padding: 20px 0;
+  border: 1px solid #ccc;
+  margin: 20px 0;
+  list-style-type: none;
+}
+
+.done {
+  text-decoration: line-through;
+}
+
+.form {
+  margin: 20px 0;
+}
+
+.item {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+/* Reactions */
+
+.reactions {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.btnReaction {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background-color: unset;
+  cursor: pointer;
+}
+
+.btnLike {
+  margin-right: 2px;
+}
+
+/* Анимация */
+
+.bounce-enter-active,
+.bounce-leave-active {
+  transition: all .5s ease;
+}
+
+.bounce-enter-from {
+  transform: rotate(360deg) scale(0);
+}
+
+.bounce-leave-to {
+  animation: bounce-out .5s;
+}
+
+@keyframes bounce-out {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.5);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
