@@ -23,15 +23,11 @@
         <form class="form" @submit.prevent="addTask">
             <input v-model="message" :placeholder="placeholder">
             <input :type="btnType" :disabled="this.message === ''" value="Добавить">
-            <reactions :likes.sync="formLikes" :dislikes.sync="formDislikes"></reactions>
+            <reactions v-model:likes="formLikes" v-model:dislikes="formDislikes"></reactions>
         </form>
         <transition name="bounce">
-            <img
-                src="https://img.pngio.com/download-free-png-great-job-png-transparent-great-jobpng-images-free-great-job-png-400_361.png"
-                alt=""
-                class="img"
-                v-show="count === 0"
-            >
+            <img src="https://img.pngio.com/download-free-png-great-job-png-transparent-great-jobpng-images-free-great-job-png-400_361.png"
+                alt="" class="img" v-show="count === 0">
         </transition>
     </div>
 </body>
